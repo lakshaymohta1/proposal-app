@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(
+        -45deg,
+        #ff5f9e,
+        #ff85b3,
+        #ffb3d9,
+        #ffcce6
+    );
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* CONTAINER */
+.container {
+    width: 90%;
+    max-width: 420px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(14px);
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    animation: fadeIn 1.2s ease;
+    box-shadow: 0 0 40px rgba(255, 105, 180, 0.6);
+}
+
+.container {
+    animation: floatCard 6s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* SLIDER */
+.slider {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+}
+
+.slides img {
+    width: 100%;
+    flex-shrink: 0;
+    height: 220px;
+    object-fit: cover;
+}
+
+
+/* TEXT */
+.question {
+    font-size: 18px;
+    margin: 15px 0;
+}
+
+/* BUTTONS */
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    padding: 12px 22px;
+    margin: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.yes {
+    background: #4CAF50;
+    color: white;
+}
+
+.no {
+    background: #f44336;
+    color: white;
+}
+
+button:hover {
+    transform: scale(1.15);
+}
+
+/* PROPOSAL */
+.hidden {
+    display: none;
+}
+
+#proposalBox h1 {
+    margin-top: 20px;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #fff; }
+    to { text-shadow: 0 0 30px #ffeb3b; }
+}
+
+/* RING */
+.ring {
+    font-size: 70px;
+    animation: ringPop 1.5s ease forwards;
+}
+
+@keyframes ringPop {
+    0% { transform: scale(0) rotate(0deg); }
+    70% { transform: scale(1.3) rotate(20deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+    .question { font-size: 16px; }
+    .slider { height: 180px; }
+    .slides img { height: 180px; }
+}
+
+.bg-heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 22px;
+    opacity: 0.6;
+    animation: floatHeart linear infinite;
+    pointer-events: none;
+}
+
+@keyframes floatHeart {
+    from {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+    }
+    to {
+        transform: translateY(-120vh) scale(1.6);
+        opacity: 0;
+    }
+}
